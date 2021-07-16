@@ -1,9 +1,12 @@
 require('dotenv').config();
 
 import passport from 'passport';
+import { Request, Response, NextFunction } from 'express';
 import { ExtractJwt, Strategy as JwtStrategy } from 'passport-jwt';
+
 import { User } from '../entities/user';
 import { getRepository } from 'typeorm';
+import { ErrorResponse } from '../models/responseModel';
 
 const options = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -20,5 +23,15 @@ passport.use(new JwtStrategy(options, async (jwt_payload, done) => {
     }
 
 }));
+
+export const authenticateJwt = (req: Request, res: Response, next: NextFunction) => {
+    passport.authenticate('jwt', { session: false }, (err: Error, user: User, info: any) => {
+        if (err) return next(err);
+        if (!user) return res.json(new ErrorResponse({ status: 401, error: 'Unauthorized' }));
+
+        req.user = user;
+        next();
+    })(req, res, next);
+};
 
 export default passport;

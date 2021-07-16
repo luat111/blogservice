@@ -18,14 +18,14 @@ export class User {
     @Column({ nullable: false })
     fullname: string
 
-    @Column()
+    @Column({ nullable: true })
     @IsEmail({}, { message: 'Incorrect Email' })
     email: string
 
-    @Column({ type: 'timestamp', nullable: false })
+    @Column({ type: 'timestamp', nullable: true })
     DoB: Date
 
-    @Column()
+    @Column({ nullable: false })
     @Length(9, 11, { message: 'The phone number must be at least 9 but not longer than 11 characters' })
     phone: string
 
