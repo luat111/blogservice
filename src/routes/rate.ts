@@ -25,5 +25,4 @@ rateRoute.delete('/rate/:id', authenticateJwt, async (req, res) => {
     res.json(resData);
 });
 
-
 export default rateRoute;

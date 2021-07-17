@@ -1,5 +1,7 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from "typeorm";
-import { IsEmail, Length } from "class-validator";
+import {
+    Entity, Column, PrimaryGeneratedColumn, OneToMany, BeforeInsert, BeforeUpdate,
+} from "typeorm";
+import { IsEmail, Length, validateOrReject } from "class-validator";
 import { Blog } from './blog';
 import { Comment } from './comment';
 import { Rate } from './rate';
@@ -43,4 +45,10 @@ export class User {
 
     @OneToMany(() => Rate, (rate) => rate.user)
     rates: Rate[]
+
+    @BeforeInsert()
+    @BeforeUpdate()
+    async validate() {
+        await validateOrReject(this);
+    }
 }

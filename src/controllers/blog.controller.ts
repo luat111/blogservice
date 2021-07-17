@@ -9,7 +9,7 @@ export const getAllBlogs = async (): Promise<any> => {
         return new SuccessResponse({ status: 200, message: 'Get list blog success', data: blogs });
     }
     catch (err) {
-        return new ErrorResponse({ status: 500, error: 'failed', data: err })
+        return new ErrorResponse({ status: 500, error: 'failed', data: err });
     }
 };
 
@@ -23,7 +23,7 @@ export const getBlogById = async (req: Request): Promise<any> => {
         return new SuccessResponse({ status: 200, message: 'Get blog success', data: blog });
     }
     catch (err) {
-        return new ErrorResponse({ status: 500, error: 'failed', data: err })
+        return new ErrorResponse({ status: 500, error: 'failed', data: err });
     }
 };
 
@@ -41,7 +41,7 @@ export const createBlog = async (req: Request): Promise<any> => {
         return new SuccessResponse({ status: 200, message: 'Create blog success', data: result });
     }
     catch (err) {
-        return new ErrorResponse({ status: 500, error: 'failed', data: err })
+        return new ErrorResponse({ status: 500, error: 'failed', data: err });
     }
 };
 
@@ -62,7 +62,7 @@ export const updateBlog = async (req: Request): Promise<any> => {
         return new SuccessResponse({ status: 200, message: 'Update success', data: result });
     }
     catch (err) {
-        return new ErrorResponse({ status: 500, error: 'failed', data: err })
+        return new ErrorResponse({ status: 500, error: 'failed', data: err });
     }
 };
 
@@ -76,7 +76,7 @@ export const removeBlog = async (req: Request): Promise<any> => {
         return new SuccessResponse({ status: 200, message: 'Delete success' });
     }
     catch (err) {
-        return new ErrorResponse({ status: 500, error: 'failed', data: err })
+        return new ErrorResponse({ status: 500, error: 'failed', data: err });
     }
 
 };

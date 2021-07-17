@@ -14,7 +14,7 @@ export const getCommentById = async (req: Request): Promise<any> => {
         return new SuccessResponse({ status: 200, message: 'Get comment success', data: comment });
     }
     catch (err) {
-        return new ErrorResponse({ status: 500, error: 'failed', data: err })
+        return new ErrorResponse({ status: 500, error: 'failed', data: err });
     }
 };
 
@@ -33,7 +33,7 @@ export const createComment = async (req: Request): Promise<any> => {
         return new SuccessResponse({ status: 200, message: 'Create success', data: result });
     }
     catch (err) {
-        return new ErrorResponse({ status: 500, error: 'failed', data: err })
+        return new ErrorResponse({ status: 500, error: 'failed', data: err });
     }
 };
 
@@ -52,7 +52,7 @@ export const createSubComment = async (req: Request): Promise<any> => {
         return new SuccessResponse({ status: 200, message: 'Create success', data: result });
     }
     catch (err) {
-        return new ErrorResponse({ status: 500, error: 'failed', data: err })
+        return new ErrorResponse({ status: 500, error: 'failed', data: err });
     }
 };
 
@@ -72,7 +72,7 @@ export const updateComment = async (req: Request): Promise<any> => {
         return new SuccessResponse({ status: 200, message: 'Update success', data: result });
     }
     catch (err) {
-        return new ErrorResponse({ status: 500, error: 'failed', data: err })
+        return new ErrorResponse({ status: 500, error: 'failed', data: err });
     }
 };
 
@@ -86,6 +86,6 @@ export const removeComment = async (req: Request): Promise<any> => {
         return new SuccessResponse({ status: 200, message: 'Delete success', data: result });
     }
     catch (err) {
-        return new ErrorResponse({ status: 500, error: 'failed', data: err })
+        return new ErrorResponse({ status: 500, error: 'failed', data: err });
     }
 };

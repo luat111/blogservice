@@ -1,5 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from "typeorm";
-import { Min, Max } from "class-validator";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, BeforeUpdate, BeforeInsert } from "typeorm";
+import { Min, Max, validateOrReject } from "class-validator";
 import { User } from './user';
 import { Blog } from './blog';
 
@@ -20,5 +20,11 @@ export class Rate {
     @ManyToOne(() => Blog, (blog) => blog.rates)
     @JoinColumn()
     blog: Blog
+
+    @BeforeInsert()
+    @BeforeUpdate()
+    async validate() {
+        await validateOrReject(this);
+    }
 
 }

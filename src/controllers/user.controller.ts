@@ -13,7 +13,7 @@ export const getAllUsers = async () => {
         return new SuccessResponse({ status: 200, message: 'Get list user success', data: users });
     }
     catch (err) {
-        return new ErrorResponse({ status: 500, error: 'failed', data: err })
+        return new ErrorResponse({ status: 500, error: 'failed', data: err });
     }
 };
 
@@ -31,7 +31,7 @@ export const signUp = async (req: Request): Promise<any> => {
         const newUser = await getRepository(User).create({ fullname, username, password: hashedPassword, email, DoB, phone });
 
         const result = await getRepository(User).save(newUser);
-        if (!result) return new ErrorResponse({ status: 500, error: 'Signup failed' })
+        if (!result) return new ErrorResponse({ status: 500, error: 'Signup failed' });
 
         return new SuccessResponse({ status: 200, message: 'Signup success', data: result });
     }
@@ -59,7 +59,7 @@ export const signIn = async (req: Request): Promise<any> => {
         return new SuccessResponse({ status: 200, message: 'Signin success', data: token })
     }
     catch (err) {
-        return new ErrorResponse({ status: 500, error: 'failed', data: err })
+        return new ErrorResponse({ status: 500, error: 'failed', data: err });
     }
 }
 
@@ -86,6 +86,6 @@ export const updateUser = async (req: Request): Promise<any> => {
         return new SuccessResponse({ status: 200, message: 'Signup success', data: result });
     }
     catch (err) {
-        return new ErrorResponse({ status: 500, error: 'failed', data: err })
+        return new ErrorResponse({ status: 500, error: 'failed', data: err });
     }
 };
