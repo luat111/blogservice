@@ -1,11 +1,11 @@
 import { Router } from "express";
 import { authenticateJwt } from '../middlewares/passport';
 
-import { getAllUsers, signUp, signIn } from "../controllers/user.controller";;
+import { getAllUsers, signUp, signIn, updateUser } from "../controllers/user.controller";;
 
 const userRoute = Router();
 
-userRoute.get('/user', async (_, res) => {
+userRoute.get('/user', authenticateJwt, async (_, res) => {
     const resData = await getAllUsers();
     res.json(resData);
 });
@@ -20,10 +20,9 @@ userRoute.post('/user/signin', async (req, res) => {
     res.json(resData);
 });
 
-userRoute.post('/user/abc',
-    authenticateJwt,
-    async (req, res) => {
-        res.json(req.user);
-    });
+userRoute.put('/user', authenticateJwt, async (req, res) => {
+    const resData = await updateUser(req);
+    res.json(resData);
+});
 
 export default userRoute;

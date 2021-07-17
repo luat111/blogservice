@@ -24,8 +24,11 @@ export class Comment {
     @JoinColumn()
     blog: Blog
 
+    @OneToMany(() => Comment, (comment) => comment.parent)
+    childComments: Comment[];
+
     @ManyToOne(() => Comment, (comment) => comment.childComments)
     @JoinColumn()
-    childComments: Comment[]
+    parent: Comment
 
 }
