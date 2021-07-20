@@ -3,7 +3,7 @@
 ## Setup and Run
 
 ### Step 1: Install Docker 
-- Following this [stite](https://docs.docker.com/get-docker)
+- Following this [site](https://docs.docker.com/get-docker)
 
 ### Step 2: Run command
 **Need admin permission**
@@ -13,7 +13,7 @@
     "type": "mysql",
     "host": "mysqlDb",
     "port": 3306,
-    "username":Get <your dbuser>,
+    "username": <your dbuser>,
     "password": <your password>,
     "database": "blog",
     "entities": [
@@ -78,7 +78,7 @@ docker-compose up
 
 ## API
 
-### /user/signup
+### Route: /user/signup
 - Method POST
 
 **body**
@@ -92,7 +92,7 @@ docker-compose up
 }
 ```
 
-### /user/signin
+### Route: /user/signin
 - Method POST
 - Return Token
 
@@ -104,7 +104,7 @@ docker-compose up
 }
 ```
 
-### /user
+### Route: /user
 **Token required**
 - Method GET
 
@@ -120,7 +120,7 @@ docker-compose up
     "phone": string, 
 ```
 
-### /blog
+### Route: /blog
 **Token required**
 - Method Get
 
@@ -145,7 +145,7 @@ docker-compose up
 }
 ```
 
-### /blog/:id
+### Route: /blog/:id
 **Token requried**
 - Method GET
 
@@ -172,7 +172,7 @@ docker-compose up
 }
 ```
 
-### /comment/:id
+### Route: /comment/:id
 **Token requried**
 - Method GET
 
@@ -189,7 +189,7 @@ docker-compose up
 	"idComment": string
 }
 ```
-### /rate
+### Route: /rate
 **Token requried**
 - Method POST
 
@@ -211,7 +211,7 @@ docker-compose up
 }
 ```
 
-### /rate/:id
+### Route: /rate/:id
 **Token requried**
 - Method GET
 
