@@ -25,7 +25,7 @@ blogRoute.put('/blog', authenticateJwt, async (req, res) => {
     res.json(resData);
 });
 
-blogRoute.delete('/blog', authenticateJwt, async (req, res) => {
+blogRoute.delete('/blog/:id', authenticateJwt, async (req, res) => {
     const resData = await removeBlog(req);
     res.json(resData);
 });
